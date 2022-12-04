@@ -76,18 +76,20 @@ public class ArbolBinBusq extends ArbolBin {
         }
     }
 
-    private void addUtil(NodoAVL padre, NodoAVL nodo) {
+    protected void addUtil(NodoAVL padre, NodoAVL nodo) {
         if (padre.valor > nodo.valor) {
             if (padre.izq != null) {
                 addUtil(padre.izq, nodo);
             } else {
                 padre.izq = nodo;
+                ++padre.altura;
             }
         } else {
             if (padre.der != null) {
                 addUtil(padre.der, nodo);
             } else {
                 padre.der = nodo;
+                ++padre.altura;
             }
         }
     }

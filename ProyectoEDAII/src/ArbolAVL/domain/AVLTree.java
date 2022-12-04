@@ -40,25 +40,6 @@ public class AVLTree extends ArbolBinBusq {
         return true;
     }
 
-    private void addUtil(NodoAVL padre, NodoAVL nodo) {
-        if (padre.valor > nodo.valor) {
-            if (padre.izq != null) {
-                addUtil(padre.izq, nodo);
-            } else {
-                padre.izq = nodo;
-                ++padre.altura;
-            }
-        } else {
-            if (padre.der != null) {
-                addUtil(padre.der, nodo);
-            } else {
-                padre.der = nodo;
-                ++padre.altura;
-            }
-        }
-
-    }
-
     private void equilibrio() {
         if (this != null) {
             root.equilibrioUtil();

@@ -12,7 +12,6 @@ public class Menu {
         MaxHeap maxHeap = new MaxHeap();
         MinHeap minHeap = new MinHeap();
         byte opc = 0;
-        int clave;
         do {
             System.out.print("""
                              -ARBOLES BINARIOS-
