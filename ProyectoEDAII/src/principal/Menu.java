@@ -6,7 +6,6 @@ public class Menu {
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
         byte opc=0;
-        System.out.println("Soy");
         do{
             System.out.print("""
                              -ARBOLES BINARIOS-
