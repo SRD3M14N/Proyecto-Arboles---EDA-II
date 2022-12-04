@@ -10,23 +10,23 @@ import java.util.List;
  *
  * @author Edgar
  */
-public class Nodo {
+public class NodoHeap {
 
     int valor;
     int altura;
-    Nodo izq = null;
-    Nodo der = null;
+    NodoHeap izq = null;
+    NodoHeap der = null;
 
-    public Nodo() {
+    public NodoHeap() {
         izq = der = null;
         altura = 0;
     }
 
-    public Nodo(int data) {
+    public NodoHeap(int data) {
         this(data, null, null);
     }
 
-    public Nodo(int data, Nodo lt, Nodo rt) {
+    public NodoHeap(int data, NodoHeap lt, NodoHeap rt) {
         valor = data;
         izq = lt;
         der = rt;
@@ -39,15 +39,15 @@ public class Nodo {
         }
     }
 
-    public void setIzq(Nodo izq) {
+    public void setIzq(NodoHeap izq) {
         this.izq = izq;
     }
 
-    public void setDer(Nodo der) {
+    public void setDer(NodoHeap der) {
         this.der = der;
     }
 
-    protected Nodo obtenerReemplazo() {
+    protected NodoHeap obtenerReemplazo() {
         if (this.der != null && this.izq != null) {
             if (this.der.esPerfecto() && this.izq.esPerfecto()) {
                 if (this.der.altura < this.izq.altura) {
@@ -64,9 +64,9 @@ public class Nodo {
         }
     }
 
-    Nodo obtenerNodo(int val) {
+    NodoHeap obtenerNodo(int val) {
         if (this.valor != val) {
-            Nodo nodo = null;
+            NodoHeap nodo = null;
             if (this.der != null) {
                 nodo = this.der.obtenerNodo(val);
                 if (nodo == null) {

@@ -1,38 +1,38 @@
 
 package testArbol;
 
-import arbolAVL.domain.Nodo;
+import arbolAVL.domain.NodoAVL;
 import arbolAVL.domain.AVLTree;
 
 public class Principal {
     public static void main(String[] args) {
         
-        Nodo n1 = new Nodo(-7);
-        Nodo n2 = new Nodo(-6);
-        Nodo n3 = new Nodo(-5);
-        Nodo n4 = new Nodo(-4);
-        Nodo n5 = new Nodo(-3);
-        Nodo n6 = new Nodo(-2);
-        Nodo n7 = new Nodo(-1);
-        Nodo n8 = new Nodo(0);
-        Nodo n9 = new Nodo(1); // 2 // 1
-        Nodo n10 = new Nodo(2); // 1 // 2
-        Nodo n11 = new Nodo(3);
-        Nodo n12 = new Nodo(4);
-        Nodo n13 = new Nodo(5);
-        Nodo n14 = new Nodo(6);
-        Nodo n15 = new Nodo(7);
+        NodoAVL n1 = new NodoAVL(-7);
+        NodoAVL n2 = new NodoAVL(-6);
+        NodoAVL n3 = new NodoAVL(-5);
+        NodoAVL n4 = new NodoAVL(-4);
+        NodoAVL n5 = new NodoAVL(-3);
+        NodoAVL n6 = new NodoAVL(-2);
+        NodoAVL n7 = new NodoAVL(-1);
+        NodoAVL n8 = new NodoAVL(0);
+        NodoAVL n9 = new NodoAVL(1); // 2 // 1
+        NodoAVL n10 = new NodoAVL(2); // 1 // 2
+        NodoAVL n11 = new NodoAVL(3);
+        NodoAVL n12 = new NodoAVL(4);
+        NodoAVL n13 = new NodoAVL(5);
+        NodoAVL n14 = new NodoAVL(6);
+        NodoAVL n15 = new NodoAVL(7);
         
-        Nodo nM = new Nodo(13);
-        Nodo nN = new Nodo(14);
-        Nodo nO = new Nodo(16);
-        Nodo nL = new Nodo(12);
-        Nodo nK = new Nodo(11);
-        Nodo nQ = new Nodo(18);
-        Nodo nP = new Nodo(17);
-        Nodo nH = new Nodo(8);
-        Nodo nI = new Nodo(9);
-        Nodo nA = new Nodo(1);
+        NodoAVL nM = new NodoAVL(13);
+        NodoAVL nN = new NodoAVL(14);
+        NodoAVL nO = new NodoAVL(16);
+        NodoAVL nL = new NodoAVL(12);
+        NodoAVL nK = new NodoAVL(11);
+        NodoAVL nQ = new NodoAVL(18);
+        NodoAVL nP = new NodoAVL(17);
+        NodoAVL nH = new NodoAVL(8);
+        NodoAVL nI = new NodoAVL(9);
+        NodoAVL nA = new NodoAVL(1);
         
         AVLTree arbol = new AVLTree(n8);
         AVLTree arbol2 = new AVLTree();

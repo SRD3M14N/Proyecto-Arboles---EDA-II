@@ -14,25 +14,25 @@ import java.util.*;
  */
 public class ArbolBin {
 
-    protected Nodo root;
+    protected NodoAVL root;
 
     public ArbolBin() {
         root = null;
     }
 
     public ArbolBin(int val) {
-        root = new Nodo(val);
+        root = new NodoAVL(val);
     }
 
-    public ArbolBin(Nodo root) {
+    public ArbolBin(NodoAVL root) {
         this.root = root;
     }
     
-    public Nodo getRoot() {
+    public NodoAVL getRoot() {
         return root;
     }
 
-    public void setRoot(Nodo root) {
+    public void setRoot(NodoAVL root) {
         this.root = root;
     }
     
@@ -44,7 +44,7 @@ public class ArbolBin {
         }
     }
 
-    public void add(Nodo padre, Nodo hijo, int lado) {
+    public void add(NodoAVL padre, NodoAVL hijo, int lado) {
         if (lado == 0) {
             padre.setIzq(hijo);
         } else {
@@ -52,18 +52,18 @@ public class ArbolBin {
         }
     }
 
-    protected void visit(Nodo n) {
+    protected void visit(NodoAVL n) {
         System.out.print(n.valor + " ");
     }
 
     public void breadthFirst() {
         System.out.print("Recorrido BFS: ");
-        Nodo r = root;
-        Queue<Nodo> queue = new LinkedList();
+        NodoAVL r = root;
+        Queue<NodoAVL> queue = new LinkedList();
         if (r != null) {
             queue.add(r);
             while (!queue.isEmpty()) {
-                r = (Nodo) queue.poll();
+                r = (NodoAVL) queue.poll();
                 visit(r);
                 if (r.izq != null) {
                     queue.add(r.izq);
@@ -76,12 +76,12 @@ public class ArbolBin {
         System.out.println();
     }
 
-    public Nodo obtenerPadre(Nodo nodo, Nodo subarbol) {
+    public NodoAVL obtenerPadre(NodoAVL nodo, NodoAVL subarbol) {
         if (subarbol != null) {
             if (subarbol.der == nodo || subarbol.izq == nodo) {
                 return subarbol;
             } else {
-                Nodo padre = obtenerPadre(nodo, subarbol.izq);
+                NodoAVL padre = obtenerPadre(nodo, subarbol.izq);
                 if (padre != null) {
                     return padre;
                 } else {
@@ -93,7 +93,7 @@ public class ArbolBin {
         return null;
     }
 
-    public boolean busqueda(int valor, Nodo subarbol) {
+    public boolean busqueda(int valor, NodoAVL subarbol) {
         boolean nodoEncontrado = false;
         if (subarbol != null) {
             if (valor != subarbol.valor) {
@@ -108,9 +108,10 @@ public class ArbolBin {
         return nodoEncontrado;
     }
     
-    public void eliminar(Nodo nodo) {
-        Nodo derecho = nodo.der, derechoTemp = nodo.der;
-        Nodo padre = obtenerPadre(nodo, root);
+    public void eliminar(NodoAVL nodo) {
+        NodoAVL derecho = nodo.der;
+        NodoAVL derechoTemp = nodo.der;
+        NodoAVL padre = obtenerPadre(nodo, root);
 
         if (nodo.izq != null) {
             if (padre.izq == nodo) {

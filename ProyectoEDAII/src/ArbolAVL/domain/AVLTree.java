@@ -6,16 +6,20 @@ public class AVLTree extends ArbolBinBusq {
         super();
     }
 
-    public AVLTree(Nodo root) {
+    public AVLTree(NodoAVL root) {
         super(root);
     }
     
+    public boolean search(int val){
+        return this.busqueda(val, root);
+    }
+    
     public boolean delete(int value){
-        Nodo nodo = root.obtenerNodo(value);
+        NodoAVL nodo = root.obtenerNodo(value);
         return delete(nodo);
     }
     
-    public boolean delete(Nodo nodo){
+    public boolean delete(NodoAVL nodo){
         if(root != null){
             this.eliminar(nodo);
             equilibrio();
@@ -25,7 +29,7 @@ public class AVLTree extends ArbolBinBusq {
         return false;
     }
 
-    public boolean add(Nodo nodo) {
+    public boolean add(NodoAVL nodo) {
         if (root == null) {
             root = nodo;
         } else {
@@ -36,7 +40,7 @@ public class AVLTree extends ArbolBinBusq {
         return true;
     }
 
-    private void addUtil(Nodo padre, Nodo nodo) {
+    private void addUtil(NodoAVL padre, NodoAVL nodo) {
         if (padre.valor > nodo.valor) {
             if (padre.izq != null) {
                 addUtil(padre.izq, nodo);
@@ -61,9 +65,9 @@ public class AVLTree extends ArbolBinBusq {
         }
     }
 
-    public void RSD(Nodo nodo) {
-        Nodo padre = obtenerPadre(nodo, root);
-        Nodo temp = nodo;
+    public void RSD(NodoAVL nodo) {
+        NodoAVL padre = obtenerPadre(nodo, root);
+        NodoAVL temp = nodo;
 
         nodo = nodo.izq;
         temp.izq = nodo.der;
@@ -82,9 +86,9 @@ public class AVLTree extends ArbolBinBusq {
         equilibrio();
     }
 
-    private void RSI(Nodo nodo) {
-        Nodo padre = obtenerPadre(nodo, root);
-        Nodo temp = nodo;
+    private void RSI(NodoAVL nodo) {
+        NodoAVL padre = obtenerPadre(nodo, root);
+        NodoAVL temp = nodo;
 
         nodo = nodo.der;
         temp.der = nodo.izq;
@@ -103,12 +107,12 @@ public class AVLTree extends ArbolBinBusq {
         equilibrio();
     }
 
-    private void RDI(Nodo nodo) {
+    private void RDI(NodoAVL nodo) {
         RSI(nodo.izq);
         RSD(nodo);
     }
 
-    private void RDD(Nodo nodo) {
+    private void RDD(NodoAVL nodo) {
         RSD(nodo.der);
         RSI(nodo);
     }
@@ -120,7 +124,7 @@ public class AVLTree extends ArbolBinBusq {
         return false;
     }
 
-    private boolean verificacionUtil(Nodo nodo) {
+    private boolean verificacionUtil(NodoAVL nodo) {
         if (nodo.equilibrio > 1) {
             if (nodo.der.equilibrio > 1) {
                 return verificacionUtil(nodo.der);

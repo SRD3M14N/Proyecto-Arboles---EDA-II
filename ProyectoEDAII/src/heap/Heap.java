@@ -9,19 +9,20 @@ public class Heap extends ArbolBin{
         super(val);
     }
 
-    public Heap(Nodo root) {
+    public Heap(NodoHeap root) {
         super(root);
     }
     
-    protected Nodo obtenerReemplazo() {
+    protected NodoHeap obtenerReemplazo() {
         if (this != null) {
             return root.obtenerReemplazo();
         }
         return null;
     }
     
-    protected void intercambiar(Nodo baja, Nodo sube) {
-        Nodo hijo, abuelo = obtenerPadre(baja, root);
+    protected void intercambiar(NodoHeap baja, NodoHeap sube) {
+        NodoHeap hijo;
+        NodoHeap abuelo = obtenerPadre(baja, root);
         if (baja.der == sube) {
             hijo = baja.izq;
             baja.izq = sube.izq;

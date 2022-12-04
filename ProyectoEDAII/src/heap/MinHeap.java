@@ -9,11 +9,11 @@ public class MinHeap extends Heap{
         super(val);
     }
 
-    public MinHeap(Nodo root) {
+    public MinHeap(NodoHeap root) {
         super(root);
     }
 
-    public boolean add(Nodo nodo) {
+    public boolean add(NodoHeap nodo) {
         if (root == null) {
             root = nodo;
         } else {
@@ -24,7 +24,7 @@ public class MinHeap extends Heap{
         return true;
     }
 
-    private void addUtil(Nodo padre, Nodo nodo) {
+    private void addUtil(NodoHeap padre, NodoHeap nodo) {
         if (padre.izq != null) {
             if (padre.der != null) {
                 if (padre.izq.esPerfecto()) {
@@ -61,7 +61,7 @@ public class MinHeap extends Heap{
 
     }
 
-    public void bajarNodo(Nodo nodo) {
+    public void bajarNodo(NodoHeap nodo) {
         if (nodo != null) {
             if (nodo.izq != null && nodo.der != null) {
                 if (nodo.izq.valor < nodo.der.valor) {
@@ -90,10 +90,10 @@ public class MinHeap extends Heap{
         }
     }
 
-    private boolean delUtil(Nodo nodo) {
-        Nodo reemplazo = obtenerReemplazo();
-        Nodo padreNodo = obtenerPadre(nodo, root);
-        Nodo padreReemplazo = obtenerPadre(reemplazo, root);
+    private boolean delUtil(NodoHeap nodo) {
+        NodoHeap reemplazo = obtenerReemplazo();
+        NodoHeap padreNodo = obtenerPadre(nodo, root);
+        NodoHeap padreReemplazo = obtenerPadre(reemplazo, root);
         if (padreNodo != null) {
             reemplazo.der = nodo.der;
             reemplazo.izq = nodo.izq;
@@ -133,7 +133,7 @@ public class MinHeap extends Heap{
     }
 
     public boolean delete(int val) {
-        Nodo nodo = obtenerNodo(val);
+        NodoHeap nodo = obtenerNodo(val);
         if (nodo != null) {
             return delUtil(nodo);
         }

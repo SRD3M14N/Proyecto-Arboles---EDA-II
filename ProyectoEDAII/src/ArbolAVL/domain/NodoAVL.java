@@ -1,23 +1,23 @@
 package arbolAVL.domain;
 
-public class Nodo {
+public class NodoAVL {
 
     int valor;
     int altura;
     int equilibrio;
-    Nodo izq;
-    Nodo der;
+    NodoAVL izq;
+    NodoAVL der;
 
-    public Nodo() {
+    public NodoAVL() {
         izq = der = null;
         altura = equilibrio = 0;
     }
 
-    public Nodo(int data) {
+    public NodoAVL(int data) {
         this(data, null, null);
     }
 
-    public Nodo(int data, Nodo lt, Nodo rt) {
+    public NodoAVL(int data, NodoAVL lt, NodoAVL rt) {
         valor = data;
         izq = lt;
         der = rt;
@@ -50,11 +50,11 @@ public class Nodo {
         return this.valor;
     }
 
-    public void setIzq(Nodo izq) {
+    public void setIzq(NodoAVL izq) {
         this.izq = izq;
     }
 
-    public void setDer(Nodo der) {
+    public void setDer(NodoAVL der) {
         this.der = der;
     }
 
@@ -105,14 +105,14 @@ public class Nodo {
 
     }
 
-    boolean signosIguales(Nodo nodo) {
+    boolean signosIguales(NodoAVL nodo) {
         return (nodo.equilibrio < 0 && this.equilibrio < 0)
                 || (nodo.equilibrio > 0 && this.equilibrio > 0);
     }
     
-    Nodo obtenerNodo(int val) {
+    NodoAVL obtenerNodo(int val) {
         if (this.valor != val) {
-            Nodo nodo = null;
+            NodoAVL nodo = null;
             if (this.der != null) {
                 nodo = this.der.obtenerNodo(val);
                 if (nodo == null) {

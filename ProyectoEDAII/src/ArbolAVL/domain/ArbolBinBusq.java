@@ -11,11 +11,11 @@ public class ArbolBinBusq extends ArbolBin {
         super(val);
     }
 
-    public ArbolBinBusq(Nodo root) {
+    public ArbolBinBusq(NodoAVL root) {
         super(root);
     }
 
-    public Nodo obtenerReemplazo(Nodo nodo) {
+    public NodoAVL obtenerReemplazo(NodoAVL nodo) {
         if (nodo.izq != null) {
             nodo = nodo.izq;
             while (nodo.der != null) {
@@ -36,8 +36,9 @@ public class ArbolBinBusq extends ArbolBin {
     }
 
     @Override
-    public void eliminar(Nodo nodo) {
-        Nodo reemplazo, padreNodo, padreReemplazo;
+    public void eliminar(NodoAVL nodo) {
+        NodoAVL reemplazo;
+        NodoAVL padreNodo, padreReemplazo;
         reemplazo = obtenerReemplazo(nodo);
         padreReemplazo = obtenerPadre(reemplazo, getRoot());
         padreNodo = obtenerPadre(nodo, getRoot());
@@ -75,7 +76,7 @@ public class ArbolBinBusq extends ArbolBin {
         }
     }
 
-    private void addUtil(Nodo padre, Nodo nodo) {
+    private void addUtil(NodoAVL padre, NodoAVL nodo) {
         if (padre.valor > nodo.valor) {
             if (padre.izq != null) {
                 addUtil(padre.izq, nodo);
@@ -91,7 +92,7 @@ public class ArbolBinBusq extends ArbolBin {
         }
     }
 
-    public boolean add(Nodo nodo) {
+    public boolean add(NodoAVL nodo) {
         if (getRoot() == null) {
             setRoot(nodo);
         } else {
@@ -101,7 +102,7 @@ public class ArbolBinBusq extends ArbolBin {
     }
     
     @Override
-    public boolean busqueda(int valor, Nodo subarbol) {
+    public boolean busqueda(int valor, NodoAVL subarbol) {
         if (subarbol != null) {
             if(subarbol.valor == valor)
                 return true;
