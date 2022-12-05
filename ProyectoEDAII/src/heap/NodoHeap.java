@@ -1,15 +1,6 @@
 package heap;
-import java.util.List;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author Edgar
- */
+
 public class NodoHeap {
 
     int valor;
@@ -47,7 +38,7 @@ public class NodoHeap {
         this.der = der;
     }
 
-    protected NodoHeap obtenerReemplazo() {
+    NodoHeap obtenerReemplazo() {
         if (this.der != null && this.izq != null) {
             if (this.der.esPerfecto() && this.izq.esPerfecto()) {
                 if (this.der.altura < this.izq.altura) {
@@ -79,7 +70,7 @@ public class NodoHeap {
         }
     }
 
-    public void ajustarAltura() {
+    void ajustarAltura() {
         if (this.izq != null) {
             this.izq.ajustarAltura();
         }

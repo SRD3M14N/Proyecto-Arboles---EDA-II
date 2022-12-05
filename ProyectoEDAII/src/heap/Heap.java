@@ -13,14 +13,14 @@ public class Heap extends ArbolBin{
         super(root);
     }
     
-    protected NodoHeap obtenerReemplazo() {
+    NodoHeap obtenerReemplazo() {
         if (this != null) {
             return root.obtenerReemplazo();
         }
         return null;
     }
     
-    protected void intercambiar(NodoHeap baja, NodoHeap sube) {
+    void intercambiar(NodoHeap baja, NodoHeap sube) {
         NodoHeap hijo;
         NodoHeap abuelo = obtenerPadre(baja, root);
         if (baja.der == sube) {

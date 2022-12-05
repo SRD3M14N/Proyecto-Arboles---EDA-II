@@ -62,7 +62,7 @@ public class MaxHeap extends Heap {
 
     }
 
-    public void bajarNodo(NodoHeap nodo) {
+    private void bajarNodo(NodoHeap nodo) {
         if (nodo != null) {
             if (nodo.izq != null && nodo.der != null) {
                 if (nodo.izq.valor > nodo.der.valor) {
@@ -91,7 +91,8 @@ public class MaxHeap extends Heap {
         }
     }
 
-    private boolean delUtil(NodoHeap nodo) {
+    @Override
+    boolean delUtil(NodoHeap nodo) {
         NodoHeap reemplazo = obtenerReemplazo();
         NodoHeap padreNodo = obtenerPadre(nodo, root);
         NodoHeap padreReemplazo = obtenerPadre(reemplazo, root);

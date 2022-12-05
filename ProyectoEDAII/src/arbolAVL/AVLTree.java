@@ -46,7 +46,7 @@ public class AVLTree extends ArbolBinBusq {
         }
     }
 
-    public void RSD(NodoAVL nodo) {
+    private void RSD(NodoAVL nodo) {
         NodoAVL padre = obtenerPadre(nodo, root);
         NodoAVL temp = nodo;
 

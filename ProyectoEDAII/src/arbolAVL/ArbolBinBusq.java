@@ -15,7 +15,7 @@ public class ArbolBinBusq extends ArbolBin {
         super(root);
     }
 
-    public NodoAVL obtenerReemplazo(NodoAVL nodo) {
+    protected NodoAVL obtenerReemplazo(NodoAVL nodo) {
         if (nodo.izq != null) {
             nodo = nodo.izq;
             while (nodo.der != null) {
@@ -76,7 +76,7 @@ public class ArbolBinBusq extends ArbolBin {
         }
     }
 
-    protected void addUtil(NodoAVL padre, NodoAVL nodo) {
+    void addUtil(NodoAVL padre, NodoAVL nodo) {
         if (padre.valor > nodo.valor) {
             if (padre.izq != null) {
                 addUtil(padre.izq, nodo);

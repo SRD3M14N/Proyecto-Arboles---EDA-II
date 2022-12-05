@@ -126,7 +126,7 @@ public class ArbolBin {
         return false;
     }
     
-    private boolean delUtil(NodoHeap nodo) {
+    boolean delUtil(NodoHeap nodo) {
         NodoHeap derecho = nodo.der;
         NodoHeap derechoTemp = nodo.der;
         NodoHeap padre = obtenerPadre(nodo, root);
@@ -159,7 +159,7 @@ public class ArbolBin {
 
     }
     
-    public NodoHeap obtenerNodo(int val){
+    NodoHeap obtenerNodo(int val){
         if(this != null){
             return root.obtenerNodo(val);
         }

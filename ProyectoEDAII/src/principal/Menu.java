@@ -5,6 +5,7 @@ import arbolAVL.*;
 import arbolAritmetico.Tree.Expresion;
 import arbolAritmetico.Tree.Tree;
 import heap.*;
+import static lecturaConsola.LecturaConsola.lecturaConsola;
 
 public class Menu {
 
@@ -19,22 +20,21 @@ public class Menu {
         String operacion, postfija = null;
         ArrayList<String> entrada;
         double resultado;
-        byte opc = 0;
+        Integer opc = 0;
 
         do {
-            System.out.print("""
+            opc = (Integer)lecturaConsola("Integer", """
                              -ARBOLES BINARIOS-
                                1. Arbol AVL
                                2. Heap
                                3. Arbol de Expresion Artimetica
                                4. Salir 
                              
-                               Selecciona una opcion: """);
-            opc = sc.nextByte();
+                               Selecciona una opcion: """, sc);
             switch (opc) {
                 case 1 -> {
                     do {
-                        System.out.print("""
+                        opc = (Integer)lecturaConsola("Integer", """
                                      -ARBOL AVL-
                                      1. Agregar una clave
                                      2. Buscar un valor
@@ -42,25 +42,24 @@ public class Menu {
                                      4. Mostrar arbol
                                      5. Regresar al menu principal
                                          
-                                     Selecciona una opcion: """);
-                        opc = sc.nextByte();
+                                     Selecciona una opcion: """, sc);
                         switch (opc) {
                             case 1 -> {
                                 System.out.println("-AGREGAR UNA CLAVE-");
                                 System.out.print("\nIngrese una clave: ");
-                                avl.add(new NodoAVL(sc.nextInt()));
+                                avl.add(new NodoAVL((Integer)lecturaConsola("Integer", "", sc)));
                                 break;
                             }
                             case 2 -> {
                                 System.out.println("-BUSCAR UN VALOR-");
                                 System.out.print("\nIngrese una clave: ");
-                                avl.search(sc.nextInt());
+                                avl.search((Integer)lecturaConsola("Integer", "", sc));
                                 break;
                             }
                             case 3 -> {
                                 System.out.println("-ELIMINAR CLAVE-");
                                 System.out.print("\nIngrese una clave: ");
-                                avl.delete(sc.nextInt());
+                                avl.delete((Integer)lecturaConsola("Integer", "", sc));
                                 break;
                             }
                             case 4 -> {
@@ -81,37 +80,35 @@ public class Menu {
                 }
                 case 2 -> {
                     do {
-                        System.out.println("""
+                        opc = (Integer)lecturaConsola("Integer", """
                                            -ARBOL HEAP-
                                            1. MAX Heap
                                            2. MIN Heap
                                            3, Regresar al menu principal
                                            
-                                           Selecciona una opcion: """);
-                        opc = sc.nextByte();
+                                           Selecciona una opcion: """, sc);
                         switch (opc) {
                             case 1 -> {
                                 do {
-                                    System.out.print("""
+                                    opc = (Integer)lecturaConsola("Integer", """
                                      -ARBOL MAX HEAP-
                                      1. Agregar una clave
                                      2. Eliminar clave
                                      3. Mostrar arbol
                                      4. Regresar al menu -ARBOL HEAP-
                                          
-                                     Selecciona una opcion: """);
-                                    opc = sc.nextByte();
+                                     Selecciona una opcion: """, sc);
                                     switch (opc) {
                                         case 1 -> {
                                             System.out.println("-AGREGAR UNA CLAVE-");
                                             System.out.print("\nIngrese una clave: ");
-                                            maxHeap.add(new NodoHeap(sc.nextInt()));
+                                            maxHeap.add(new NodoHeap((Integer)lecturaConsola("Integer", "", sc)));
                                             break;
                                         }
                                         case 2 -> {
                                             System.out.println("-ELIMINAR CLAVE-");
                                             System.out.print("\nIngrese una clave: ");
-                                            maxHeap.delete(sc.nextInt());
+                                            maxHeap.delete((Integer)lecturaConsola("Integer", "", sc));
                                             break;
                                         }
                                         case 3 -> {
@@ -132,26 +129,25 @@ public class Menu {
                             }
                             case 2 -> {
                                 do {
-                                    System.out.print("""
+                                    opc = (Integer)lecturaConsola("Integer", """
                                      -ARBOL MIN HEAP-
                                      1. Agregar una clave
                                      2. Eliminar clave
                                      3. Mostrar arbol
                                      4. Regresar al menu -ARBOL HEAP-
                                          
-                                     Selecciona una opcion: """);
-                                    opc = sc.nextByte();
+                                     Selecciona una opcion: """, sc);
                                     switch (opc) {
                                         case 1 -> {
                                             System.out.println("-AGREGAR UNA CLAVE-");
                                             System.out.print("\nIngrese una clave: ");
-                                            minHeap.add(new NodoHeap(sc.nextInt()));
+                                            minHeap.add(new NodoHeap((Integer)lecturaConsola("Integer", "", sc)));
                                             break;
                                         }
                                         case 2 -> {
                                             System.out.println("-ELIMINAR CLAVE-");
                                             System.out.print("\nIngrese una clave: ");
-                                            minHeap.delete(sc.nextInt());
+                                            minHeap.delete((Integer)lecturaConsola("Integer", "", sc));
                                             break;
                                         }
                                         case 3 -> {
@@ -182,15 +178,14 @@ public class Menu {
                 }
                 case 3 -> {
                     do {
-                        System.out.print("""
+                        opc = (Integer)lecturaConsola("Integer", """
                                      -ARBOL DE EXPRESION ARITMETICA-
                                      1. Ingresar expresion
                                      2. Mostrar arbol
                                      3. Resolver
                                      4. Regresar al menu principal
                                          
-                                     Selecciona una opcion: """);
-                        opc = sc.nextByte();
+                                     Selecciona una opcion: """, sc);
                         switch (opc) {
                             case 1 -> {
                                 System.out.println("-INGRESAR EXPRESION (SIN ESPACIOS)-");

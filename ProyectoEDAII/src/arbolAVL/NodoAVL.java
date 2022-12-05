@@ -30,26 +30,6 @@ public class NodoAVL {
         }
     }
 
-    public int getAltura() {
-        return altura;
-    }
-
-    public void setAltura(int altura) {
-        this.altura = altura;
-    }
-
-    public int getEquilibrio() {
-        return equilibrio;
-    }
-
-    public void setEquilibrio(int equilibrio) {
-        this.equilibrio = equilibrio;
-    }
-
-    public int getValor() {
-        return this.valor;
-    }
-
     public void setIzq(NodoAVL izq) {
         this.izq = izq;
     }
@@ -58,7 +38,7 @@ public class NodoAVL {
         this.der = der;
     }
 
-    public void equilibrioUtil() {
+    void equilibrioUtil() {
         if (this.izq != null) {
             this.izq.equilibrioUtil();
         }
