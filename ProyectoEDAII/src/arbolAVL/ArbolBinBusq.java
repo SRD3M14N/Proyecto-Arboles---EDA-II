@@ -1,4 +1,4 @@
-package arbolAVL.domain;
+package arbolAVL;
 
 
 public class ArbolBinBusq extends ArbolBin {

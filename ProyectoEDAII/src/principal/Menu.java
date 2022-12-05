@@ -1,7 +1,7 @@
 package principal;
 
 import java.util.*;
-import arbolAVL.domain.*;
+import arbolAVL.*;
 import heap.*;
 
 public class Menu {

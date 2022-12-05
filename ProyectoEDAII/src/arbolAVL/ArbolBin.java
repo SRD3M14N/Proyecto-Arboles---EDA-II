@@ -1,4 +1,4 @@
-package arbolAVL.domain;
+package arbolAVL;
 
 
 import java.util.*;
