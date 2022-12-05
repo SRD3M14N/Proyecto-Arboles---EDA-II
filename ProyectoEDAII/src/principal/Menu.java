@@ -2,6 +2,8 @@ package principal;
 
 import java.util.*;
 import arbolAVL.*;
+import arbolAritmetico.Tree.Expresion;
+import arbolAritmetico.Tree.Tree;
 import heap.*;
 
 public class Menu {
@@ -11,7 +13,14 @@ public class Menu {
         AVLTree avl = new AVLTree();
         MaxHeap maxHeap = new MaxHeap();
         MinHeap minHeap = new MinHeap();
+        Tree treeExpression = new Tree();
+        Expresion expresion = new Expresion();
+
+        String operacion, postfija = null;
+        ArrayList<String> entrada;
+        double resultado;
         byte opc = 0;
+
         do {
             System.out.print("""
                              -ARBOLES BINARIOS-
@@ -163,7 +172,8 @@ public class Menu {
                             }
                             case 3 -> {
 
-                            } default -> {
+                            }
+                            default -> {
                                 System.out.println("\n\nEl valor ingresado no es valido\n");
                             }
                         }
@@ -183,15 +193,33 @@ public class Menu {
                         opc = sc.nextByte();
                         switch (opc) {
                             case 1 -> {
-                                System.out.println("-INGRESAR EXPRESION-");
+                                System.out.println("-INGRESAR EXPRESION (SIN ESPACIOS)-");
+                                operacion = sc.nextLine();
+
+                                System.out.print("Operacion: " + operacion);
+
+                                postfija = expresion.toRPN(operacion);
+                                System.out.print("\nLa notacion polaca inversa es: ");
+                                Expresion.view(postfija);
+
+                                treeExpression = new Tree(postfija);
                                 break;
                             }
                             case 2 -> {
                                 System.out.println("-MOSTRAR ARBOL-");
+                                System.out.print("\nEl recorrido en postOrden del arbol es: ");
+                                treeExpression.postOrden(treeExpression.getRoot());
+                                System.out.println("");
                                 break;
                             }
                             case 3 -> {
                                 System.out.println("-RESOLVER-");
+                                if (postfija == null) {
+                                    System.out.println("Ingresa una expresion!");
+                                } else {
+                                    resultado = expresion.calculo(postfija);
+                                    System.out.println("Resultado: " + resultado);
+                                }
                                 break;
                             }
                             case 4 -> {
