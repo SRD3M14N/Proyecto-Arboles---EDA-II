@@ -121,6 +121,7 @@ public class ArbolBin {
     
     public boolean delete(NodoHeap nodo){
         if(busqueda(nodo.valor, root)){
+            System.out.println("\nLa clave se ha eliminado correctamente\n");
             return delUtil(nodo);
         }
         return false;

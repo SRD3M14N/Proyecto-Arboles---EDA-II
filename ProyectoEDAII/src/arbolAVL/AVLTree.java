@@ -37,6 +37,7 @@ public class AVLTree extends ArbolBinBusq {
         }
         equilibrio();
         verificacion();
+        System.out.println("\nLa clave se ha ingresado correctamente\n");
         return true;
     }
 

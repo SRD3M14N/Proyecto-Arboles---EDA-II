@@ -19,11 +19,13 @@ public class Menu {
 
         String operacion, postfija = null;
         ArrayList<String> entrada;
+        String[] claves;
         double resultado;
         Integer opc = 0;
 
         do {
-            opc = (Integer)lecturaConsola("Integer", """
+            opc = (Integer) lecturaConsola("Integer", """
+                                                     
                              -ARBOLES BINARIOS-
                                1. Arbol AVL
                                2. Heap
@@ -34,9 +36,10 @@ public class Menu {
             switch (opc) {
                 case 1 -> {
                     do {
-                        opc = (Integer)lecturaConsola("Integer", """
+                        opc = (Integer) lecturaConsola("Integer", """
+                                                                 
                                      -ARBOL AVL-
-                                     1. Agregar una clave
+                                     1. Agregar una clave/claves
                                      2. Buscar un valor
                                      3. Eliminar clave
                                      4. Mostrar arbol
@@ -45,31 +48,38 @@ public class Menu {
                                      Selecciona una opcion: """, sc);
                         switch (opc) {
                             case 1 -> {
-                                System.out.println("-AGREGAR UNA CLAVE-");
-                                System.out.print("\nIngrese una clave: ");
-                                avl.add(new NodoAVL((Integer)lecturaConsola("Integer", "", sc)));
+                                System.out.println("\n\n-AGREGAR UNA CLAVE-");
+                                System.out.print("\nIngrese las claves: ");
+                                claves = sc.nextLine().split(" ");
+                                for (String digitos : claves) {
+                                    avl.add(new NodoAVL(Integer.parseInt(digitos)));
+                                }
                                 break;
                             }
                             case 2 -> {
-                                System.out.println("-BUSCAR UN VALOR-");
-                                System.out.print("\nIngrese una clave: ");
-                                avl.search((Integer)lecturaConsola("Integer", "", sc));
+                                System.out.println("\n\n-BUSCAR UN VALOR-");
+                                System.out.println("La clave se encuentra en el arbol: " + avl.search((Integer) lecturaConsola("Integer", "\nIngrese una clave: ", sc)));
                                 break;
                             }
                             case 3 -> {
-                                System.out.println("-ELIMINAR CLAVE-");
-                                System.out.print("\nIngrese una clave: ");
-                                avl.delete((Integer)lecturaConsola("Integer", "", sc));
+                                System.out.println("\n\n-ELIMINAR CLAVE-");
+                                System.out.print("\nIngrese las claves: ");
+                                claves = sc.nextLine().split(" ");
+                                for (String digitos : claves) {
+                                    avl.delete(new NodoAVL(Integer.parseInt(digitos)));
+                                }
                                 break;
                             }
                             case 4 -> {
-                                System.out.println("-MOSTRAR ARBOL-");
+                                System.out.println("\n\n-MOSTRAR ARBOL-");
                                 avl.breadthFirst();
+                                opc = 0;
                                 break;
                             }
                             case 5 -> {
                             }
                             default -> {
+                                opc = 0;
                                 System.out.println("\n\nEl valor ingresado no es valido\n");
                             }
 
@@ -80,39 +90,47 @@ public class Menu {
                 }
                 case 2 -> {
                     do {
-                        opc = (Integer)lecturaConsola("Integer", """
+                        opc = (Integer) lecturaConsola("Integer", """
+                                                                 
                                            -ARBOL HEAP-
                                            1. MAX Heap
                                            2. MIN Heap
-                                           3, Regresar al menu principal
+                                           3. Regresar al menu principal
                                            
                                            Selecciona una opcion: """, sc);
                         switch (opc) {
                             case 1 -> {
                                 do {
-                                    opc = (Integer)lecturaConsola("Integer", """
+                                    opc = (Integer) lecturaConsola("Integer", """
+                                                                             
                                      -ARBOL MAX HEAP-
-                                     1. Agregar una clave
+                                     1. Agregar una clave/claves
                                      2. Eliminar clave
                                      3. Mostrar arbol
-                                     4. Regresar al menu -ARBOL HEAP-
+                                     4. Regresar al menu
                                          
                                      Selecciona una opcion: """, sc);
                                     switch (opc) {
                                         case 1 -> {
-                                            System.out.println("-AGREGAR UNA CLAVE-");
-                                            System.out.print("\nIngrese una clave: ");
-                                            maxHeap.add(new NodoHeap((Integer)lecturaConsola("Integer", "", sc)));
+                                            System.out.println("\n\n-AGREGAR UNA CLAVE-");
+                                            System.out.print("\nIngrese las claves: ");
+                                            claves = sc.nextLine().split(" ");
+                                            for (String digitos : claves) {
+                                                maxHeap.add(new NodoHeap(Integer.parseInt(digitos)));
+                                            }
                                             break;
                                         }
                                         case 2 -> {
                                             System.out.println("-ELIMINAR CLAVE-");
-                                            System.out.print("\nIngrese una clave: ");
-                                            maxHeap.delete((Integer)lecturaConsola("Integer", "", sc));
+                                            System.out.print("\nIngrese las claves: ");
+                                            claves = sc.nextLine().split(" ");
+                                            for (String digitos : claves) {
+                                                maxHeap.delete(Integer.parseInt(digitos));
+                                            }
                                             break;
                                         }
                                         case 3 -> {
-                                            System.out.println("-MOSTRAR ARBOL-");
+                                            System.out.println("\n\n-MOSTRAR ARBOL-");
                                             maxHeap.breadthFirst();
                                             break;
                                         }
@@ -120,38 +138,47 @@ public class Menu {
                                         }
 
                                         default -> {
+                                            opc = 0;
                                             System.out.println("\n\nEl valor ingresado no es valido\n");
                                         }
 
                                     }
 
                                 } while (opc != 4);
+                                opc = 0;
                             }
                             case 2 -> {
                                 do {
-                                    opc = (Integer)lecturaConsola("Integer", """
+                                    opc = (Integer) lecturaConsola("Integer", """
+                                                                             
                                      -ARBOL MIN HEAP-
-                                     1. Agregar una clave
+                                     1. Agregar una clave/claves
                                      2. Eliminar clave
                                      3. Mostrar arbol
-                                     4. Regresar al menu -ARBOL HEAP-
+                                     4. Regresar al menu
                                          
                                      Selecciona una opcion: """, sc);
                                     switch (opc) {
                                         case 1 -> {
                                             System.out.println("-AGREGAR UNA CLAVE-");
-                                            System.out.print("\nIngrese una clave: ");
-                                            minHeap.add(new NodoHeap((Integer)lecturaConsola("Integer", "", sc)));
+                                            System.out.print("\nIngrese las claves: ");
+                                            claves = sc.nextLine().split(" ");
+                                            for (String digitos : claves) {
+                                                minHeap.add(new NodoHeap(Integer.parseInt(digitos)));
+                                            }
                                             break;
                                         }
                                         case 2 -> {
-                                            System.out.println("-ELIMINAR CLAVE-");
-                                            System.out.print("\nIngrese una clave: ");
-                                            minHeap.delete((Integer)lecturaConsola("Integer", "", sc));
+                                            System.out.println("\n\n-ELIMINAR CLAVE-");
+                                            System.out.print("\nIngrese las claves: ");
+                                            claves = sc.nextLine().split(" ");
+                                            for (String digitos : claves) {
+                                                minHeap.delete(Integer.parseInt(digitos));
+                                            }
                                             break;
                                         }
                                         case 3 -> {
-                                            System.out.println("-MOSTRAR ARBOL-");
+                                            System.out.println("\n\n-MOSTRAR ARBOL-");
                                             minHeap.breadthFirst();
                                             break;
                                         }
@@ -159,12 +186,14 @@ public class Menu {
                                         }
 
                                         default -> {
+                                            opc = 0;
                                             System.out.println("\n\nEl valor ingresado no es valido\n");
                                         }
 
                                     }
 
                                 } while (opc != 4);
+                                opc = 0;
                             }
                             case 3 -> {
 
@@ -178,7 +207,8 @@ public class Menu {
                 }
                 case 3 -> {
                     do {
-                        opc = (Integer)lecturaConsola("Integer", """
+                        opc = (Integer) lecturaConsola("Integer", """
+                                                                 
                                      -ARBOL DE EXPRESION ARITMETICA-
                                      1. Ingresar expresion
                                      2. Mostrar arbol
@@ -188,7 +218,7 @@ public class Menu {
                                      Selecciona una opcion: """, sc);
                         switch (opc) {
                             case 1 -> {
-                                System.out.println("-INGRESAR EXPRESION (SIN ESPACIOS)-");
+                                System.out.println("\n\n-INGRESAR EXPRESION (SIN ESPACIOS)-");
                                 operacion = sc.nextLine();
 
                                 System.out.print("Operacion: " + operacion);
@@ -201,14 +231,14 @@ public class Menu {
                                 break;
                             }
                             case 2 -> {
-                                System.out.println("-MOSTRAR ARBOL-");
+                                System.out.println("\n\n-MOSTRAR ARBOL-");
                                 System.out.print("\nEl recorrido en postOrden del arbol es: ");
                                 treeExpression.postOrden(treeExpression.getRoot());
                                 System.out.println("");
                                 break;
                             }
                             case 3 -> {
-                                System.out.println("-RESOLVER-");
+                                System.out.println("\n\n-RESOLVER-");
                                 if (postfija == null) {
                                     System.out.println("Ingresa una expresion!");
                                 } else {
@@ -221,12 +251,14 @@ public class Menu {
                             }
 
                             default -> {
+                                opc = 0;
                                 System.out.println("\n\nEl valor ingresado no es valido\n");
                             }
 
                         }
 
                     } while (opc != 4);
+                    opc = 0;
                 }
             }
         } while (opc != 4);

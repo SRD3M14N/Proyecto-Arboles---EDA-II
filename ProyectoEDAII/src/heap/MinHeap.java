@@ -136,8 +136,10 @@ public class MinHeap extends Heap{
     public boolean delete(int val) {
         NodoHeap nodo = obtenerNodo(val);
         if (nodo != null) {
+            System.out.println("\nLa clave se ha ingresado correctamente\n");
             return delUtil(nodo);
         }
+        System.out.println("\nNo fue posible eliminar la clave\n");
         return false;
     }
 }
